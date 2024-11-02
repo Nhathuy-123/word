@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <br />
+    <div class="wheel-container">
+      <h1 style="text-align: center">Vòng quay may mắn</h1>
+      <div class="pointer"></div>
+      <!-- Kim chỉ ở giữa -->
+      <div class="wheel" id="wheel">
+        <div class="segment" style="--i: 0">Cái nịt</div>
+        <div class="segment" style="--i: 1">Đặc biệt</div>
+        <div class="segment" style="--i: 2">Cái nịt</div>
+        <div class="segment" style="--i: 3">Cái nịt</div>
+      </div>
+      <button id="spin-btn">Xoay</button>
+    </div>
+
+    <div id="popup" class="popup hidden">
+      <p>
+        Chúc mừng bạn đã trúng
+        <span style="color: red">Gấu bông capybara!</span>
+      </p>
+      <button onclick="closePopup()">Đóng</button>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

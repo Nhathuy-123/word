@@ -1,0 +1,108 @@
+/* Màu nền của trang */
+body {
+  background-color: #add8e6; /* Màu xanh nhạt */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Container của vòng quay */
+.wheel-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Vòng quay */
+.wheel {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  border: 8px solid #333;
+  background-color: #1e90ff; /* Xanh biển */
+  position: relative;
+  overflow: hidden;
+  transform: rotate(0deg);
+  transition: transform 4s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+/* Các phần trong vòng quay */
+.segment {
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform-origin: 0% 100%;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  transform: rotate(calc(90deg * var(--i)));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-weight: bold;
+  font-size: 18px;
+  text-align: center;
+  border-top-right-radius: 100%;
+  border-bottom-right-radius: 100%;
+  border: 5px solid; /* Đường viền cho các ô */
+}
+
+/* Màu viền khác nhau cho từng ô */
+.segment:nth-child(1) {
+  background-color: #f54242;
+  border-color: #ff6347;
+}
+
+.segment:nth-child(2) {
+  background-color: #42a5f5;
+  border-color: #1e90ff;
+}
+
+.segment:nth-child(3) {
+  background-color: #66bb6a;
+  border-color: #32cd32;
+}
+
+.segment:nth-child(4) {
+  background-color: #ffca28;
+  border-color: #ffd700;
+}
+
+/* Kim chỉ ở trung tâm */
+.pointer {
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 30px solid #ff0000; /* Màu đỏ cho kim chỉ */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(180deg); /* Đặt ở giữa và quay kim chỉ xuống */
+  z-index: 10;
+}
+
+/* Hiệu ứng popup */
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.popup.hidden {
+  display: none;
+}
